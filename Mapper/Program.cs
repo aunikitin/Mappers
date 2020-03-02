@@ -9,70 +9,26 @@ namespace Mapper
         static void Main()
         {
             const int tries = 1000000;
-            
-            var unoptimizedMapper = new UnoptimizedMapper();
+            TestMapper(new UnoptimizedMapper(), "Unoptimized", tries);
+            TestMapper(new OptimizedMapper(), "Optimized", tries);
+            TestMapper(new DynamicCodeMapper(), "Dynamic", tries);
+            TestMapper(new MapperLcg(), "Lcg", tries);
+        }
+
+        private static void TestMapper(ObjectCopyBase mapper, string mapperName, long triesCount)
+        {
             var watch = System.Diagnostics.Stopwatch.StartNew();
-
-            for (var i = 0; i < tries; i++)
-            {
-                unoptimizedMapper.Copy(new Source(), new Destination());
-            }
-
-            watch.Stop();
-
-            Console.WriteLine("Unoptimized:");
-            PrintResult(watch.ElapsedMilliseconds, tries);
-
-            watch.Reset();
-
-            Console.WriteLine("//--------------------------------//");
-
-            var optimizedMapper = new OptimizedMapper();
             watch.Start();
 
-            for (var i = 0; i < tries; i++)
+            for (var i = 0; i < triesCount; i++)
             {
-                optimizedMapper.Copy(new Source(), new Destination());
+                mapper.Copy(new Source(), new Destination());
             }
 
             watch.Stop();
 
-            Console.WriteLine("Optimized:");
-            PrintResult(watch.ElapsedMilliseconds, tries);
-
-            watch.Reset();
-
-            Console.WriteLine("//--------------------------------//");
-
-            var dynamicCodeMapper = new DynamicCodeMapper();
-            watch.Start();
-
-            for (var i = 0; i < tries; i++)
-            {
-                dynamicCodeMapper.Copy(new Source(), new Destination());
-            }
-
-            watch.Stop();
-
-            Console.WriteLine("Dynamic:");
-            PrintResult(watch.ElapsedMilliseconds, tries);
-
-            watch.Reset();
-
-            Console.WriteLine("//--------------------------------//");
-
-            var mapperLcg = new MapperLcg();
-            watch.Start();
-
-            for (var i = 0; i < tries; i++)
-            {
-                mapperLcg.Copy(new Source(), new Destination());
-            }
-
-            watch.Stop();
-
-            Console.WriteLine("Lcg:");
-            PrintResult(watch.ElapsedMilliseconds, tries);
+            Console.WriteLine($"{mapperName}:");
+            PrintResult(watch.ElapsedMilliseconds, triesCount);
 
             watch.Reset();
 
