@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mapper", "Mapper\Mapper.csproj", "{D81CB42B-211A-4B8E-98D5-CE7AEAE1EB64}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D81CB42B-211A-4B8E-98D5-CE7AEAE1EB64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D81CB42B-211A-4B8E-98D5-CE7AEAE1EB64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D81CB42B-211A-4B8E-98D5-CE7AEAE1EB64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D81CB42B-211A-4B8E-98D5-CE7AEAE1EB64}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {56FFA259-2238-4AE9-A432-004BD8587CFF}
+	EndGlobalSection
+EndGlobal
